@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Abu">
 <meta property="og:description" content="·这里记录一个很久以前学长讲解的爬虫 题目链接地址为：http://123.206.87.240:8002/qiumingshan/ 打开后我们可以看到题目，显然，人脑在两秒内无法算出结果，所以需要借助python，思路较容易，由于每次刷新页面给出的表达式都不相同，所以我们需要建立一个会话（Session），然后截取其中的计算式，将结果返回给Result 变量，最终通过post将result提交给">
 <meta property="og:locale" content="zh-ch">
-<meta property="og:updated_time" content="2019-04-08T06:42:26.327Z">
+<meta property="og:updated_time" content="2019-04-08T06:55:09.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个简单爬虫">
 <meta name="twitter:description" content="·这里记录一个很久以前学长讲解的爬虫 题目链接地址为：http://123.206.87.240:8002/qiumingshan/ 打开后我们可以看到题目，显然，人脑在两秒内无法算出结果，所以需要借助python，思路较容易，由于每次刷新页面给出的表达式都不相同，所以我们需要建立一个会话（Session），然后截取其中的计算式，将结果返回给Result 变量，最终通过post将result提交给">
@@ -346,7 +346,7 @@
 <p>题目链接地址为：<a href="http://123.206.87.240:8002/qiumingshan/" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/</a></p>
 <p>打开后我们可以看到题目，显然，人脑在两秒内无法算出结果，所以需要借助python，思路较容易，由于每次刷新页面给出的表达式都不相同，所以我们需要建立一个会话（Session），然后截取其中的计算式，将结果返回给Result 变量，最终通过post将result提交给网站，打印得到结果。</p>
 <p>·代码如下：</p>
-<p>import requests<br>import re<br>match = re.compile(‘<div>(.*)</div>‘) #正则表达式<br>s = requests.Session()<br>r = s.get(“<a href="http://123.206.87.240:8002/qiumingshan/&quot;" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/&quot;</a>) #发起网络请求<br>a = match.findall(r.content)[0][0:-3] #获取网络请求并截取字符串<br>result = eval(a)    #返回运算结果<br>datas = {‘value’:result}<br>r1 = s.post(‘<a href="http://123.206.87.240:8002/qiumingshan/&#39;,data=datas" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/&#39;,data=datas</a>)<br>print r1.content # get the answer</p>
+<p>$ import requests<br>$ import re<br>$ match = re.compile(‘<div>(.*)</div>‘) #正则表达式<br>$ s = requests.Session()<br>$ r = s.get(“<a href="http://123.206.87.240:8002/qiumingshan/&quot;" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/&quot;</a>) #发起网络请求<br>$ a = match.findall(r.content)[0][0:-3] #获取网络请求并截取字符串<br>$ result = eval(a)    #返回运算结果<br>$ datas = {‘value’:result}<br>$ r1 = s.post(‘<a href="http://123.206.87.240:8002/qiumingshan/&#39;,data=datas" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/&#39;,data=datas</a>)<br>$ print r1.content # get the answer</p>
 
       
     </div>
